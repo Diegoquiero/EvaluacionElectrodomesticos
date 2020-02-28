@@ -11,7 +11,7 @@ public class Electrodomestico {
      *                          objetos hijos.
      * @param peso              corresponde al peso que tendran los objetos hijos.
      */
-  
+
     private float precioBase;
     private String color;
     private char consumoEnergetico;
@@ -28,10 +28,10 @@ public class Electrodomestico {
      * Constructor por defecto.
      */
     public Electrodomestico() {
-        this.precioBase = 0;
-        this.color = "";
-        this.consumoEnergetico = 'F';
-        this.peso = 0;
+        this.precioBase = PRECIO_BASE;
+        this.color = COLOR;
+        this.consumoEnergetico = CONSUMO_ENERGETICO;
+        this.peso = PESO;
     }
 
     /**
@@ -44,8 +44,8 @@ public class Electrodomestico {
      */
     public Electrodomestico(float precioBase, float peso) {
         this();
-        this.precioBase = PRECIO_BASE;
-        this.peso = PESO;
+        this.precioBase = precioBase;
+        this.peso = peso;
 
     }
 
@@ -61,13 +61,10 @@ public class Electrodomestico {
      */
     public Electrodomestico(float precioBase, float peso, String color, char consumoEnergetico) {
         this(precioBase, peso);
-        this.color = COLOR;
-        this.consumoEnergetico = CONSUMO_ENERGETICO;
+        this.color = color;
+        this.consumoEnergetico = consumoEnergetico;
     }
-    
-    /** 
-     * @return Precio por defecto
-     */
+
     public float getPrecioBase() {
         return precioBase;
     }
@@ -84,75 +81,109 @@ public class Electrodomestico {
         return peso;
     }
 
+    /**
+     * Verifica que la letra ingresada por consumo sea valida. si no asigna valor
+     * por defecto.
+     */
+
     public char comprobarConsumoEnergetico(char letra) {
         for (int i = 0; i < Utilidades.LETRAS.length; i++) {
             if (letra != Utilidades.LETRAS[i]) {
                 letra = CONSUMO_ENERGETICO;
             }
-          
+
         }
         return letra;
     }
 
+    /**
+     * Verifica que el color ingresado para color del articulo sea valido. si no
+     * asigna color por defecto.
+     */
     public String comprobarColor(String color) {
         for (int i = 0; i < Utilidades.COLOR.length; i++) {
             if (color != Utilidades.COLOR[i]) {
                 color = COLOR;
             }
-            
+
         }
         return color;
     }
 
-    public float precioFinal(Electrodomestico y) {
-        float contadorFinal = 0;
-        float contador = PRECIO_BASE;
-        float contadorPeso = 0;
-        if (consumoEnergetico == 'A') {
+    /**
+     * Suma los valores de los metodos que entregan valor
+     * del Electrodomestico en base a consumoEnergetico y
+     * Peso.
+     * @return contador.
+     */
+    public float precioFinal() {
+        float contador = this.precioBase;
+        contador += precioConsumo() ;
+        contador+=porPeso();
+        
+        return contador;
+    }
+    /**\
+     * Genera valor en base a consumoEnergetico.
+     * @return valor contador
+     */
+    public float precioConsumo() {
+        float contador = 0;
+
+        if (this.consumoEnergetico == 'A') {
             contador += 100;
-            if (consumoEnergetico == 'B') {
+            if (this.consumoEnergetico == 'B') {
                 contador += 80;
-                if (consumoEnergetico == 'C') {
+            } else {
+                if (this.consumoEnergetico == 'C') {
                     contador += 60;
-                    if (consumoEnergetico == 'D') {
+                } else {
+                    if (this.consumoEnergetico == 'D') {
                         contador += 50;
-                        if (consumoEnergetico == 'E') {
+                    } else {
+                        if (this.consumoEnergetico == 'E') {
                             contador += 30;
-                            if (consumoEnergetico == 'F') {
+                        } else {
+                            if (this.consumoEnergetico == 'F') {
                                 contador += 10;
                             } else {
-                                contador = PRECIO_BASE;
-                            }  
+                                contador = 0;
+                            }
                         }
                     }
                 }
             }
         }
-        
-        if (peso == 0 && peso <= 19) {
+        return contador;
+    }
+
+    /**
+     * Genera valor en base a peso.
+     * @return contadorPeso.
+     */
+    public float porPeso() {
+        float contadorPeso = 0;
+        if (this.peso == 0 && this.peso <= 19) {
             contadorPeso += 10;
-            if (peso == 20 && peso <= 49) {
+        } else {
+            if (this.peso == 20 && this.peso <= 49) {
                 contadorPeso = +50;
-                if (peso == 50 && peso <= 79) {
+            } else {
+                if (this.peso == 50 && this.peso <= 79) {
                     contadorPeso += 80;
-                    if (peso > 80) {
+                } else {
+                    if (this.peso > 80) {
                         contadorPeso += 100;
+                    } else {
+                        contadorPeso = 0;
                     }
+
                 }
 
             }
-        
-        }
-     
-        contadorFinal = contador + contadorPeso;       
-        return contadorFinal;
-    	}
 
-	@Override
-	public String toString() {
-		return "Electrodomestico [precioBase=" + precioBase + ", color=" + color + ", consumoEnergetico="
-				+ consumoEnergetico + ", peso=" + peso + "]";
-	}   
-   
+        }
+        return contadorPeso;
     }
 
+}
