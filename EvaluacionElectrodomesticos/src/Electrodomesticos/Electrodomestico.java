@@ -111,20 +111,22 @@ public class Electrodomestico {
     }
 
     /**
-     * Suma los valores de los metodos que entregan valor
-     * del Electrodomestico en base a consumoEnergetico y
-     * Peso.
+     * Suma los valores de los metodos que entregan valor del Electrodomestico en
+     * base a consumoEnergetico y Peso.
+     * 
      * @return contador.
      */
     public float precioFinal() {
         float contador = this.precioBase;
-        contador += precioConsumo() ;
-        contador+=porPeso();
-        
+        contador += precioConsumo();
+        contador += porPeso();
+
         return contador;
     }
-    /**\
-     * Genera valor en base a consumoEnergetico.
+
+    /**
+     * \ Genera valor en base a consumoEnergetico.
+     * 
      * @return valor contador
      */
     public float precioConsumo() {
@@ -159,6 +161,7 @@ public class Electrodomestico {
 
     /**
      * Genera valor en base a peso.
+     * 
      * @return contadorPeso.
      */
     public float porPeso() {
