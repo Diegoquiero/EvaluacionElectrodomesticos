@@ -12,17 +12,17 @@ public class Electrodomestico {
      * @param peso              corresponde al peso que tendran los objetos hijos.
      */
   
-    private int precioBase;
+    private float precioBase;
     private String color;
     private char consumoEnergetico;
     private float peso;
     /**
      * Valores por defecto que poseeran los articulos.
      */
-    protected final int PRECIO_BASE = 100000;
-    protected final String COLOR = "BLANCO";
-    protected final char CONSUMO_ENERGETICO = 'F';
-    protected final float PESO = 5;
+    protected final static float PRECIO_BASE = 100000;
+    protected final static String COLOR = "BLANCO";
+    protected final static char CONSUMO_ENERGETICO = 'F';
+    protected final static float PESO = 5;
 
     /**
      * Constructor por defecto.
@@ -42,7 +42,7 @@ public class Electrodomestico {
      * @param peso       se le asigna el valor por defecto registrado en la
      *                   constante.
      */
-    public Electrodomestico(int precioBase, float peso) {
+    public Electrodomestico(float precioBase, float peso) {
         this();
         this.precioBase = PRECIO_BASE;
         this.peso = PESO;
@@ -59,13 +59,16 @@ public class Electrodomestico {
      * @param consumoEnergetico se le asigna el valor por defecto registrado en la
      *                          constante.
      */
-    public Electrodomestico(int precioBase, float peso, String color, char consumoEnergetico) {
+    public Electrodomestico(float precioBase, float peso, String color, char consumoEnergetico) {
         this(precioBase, peso);
         this.color = COLOR;
         this.consumoEnergetico = CONSUMO_ENERGETICO;
     }
-
-    public int getPrecioBase() {
+    
+    /** 
+     * @return Precio por defecto
+     */
+    public float getPrecioBase() {
         return precioBase;
     }
 
@@ -86,9 +89,9 @@ public class Electrodomestico {
             if (letra != Utilidades.LETRAS[i]) {
                 letra = CONSUMO_ENERGETICO;
             }
-            return letra;
+          
         }
-
+        return letra;
     }
 
     public String comprobarColor(String color) {
@@ -96,12 +99,12 @@ public class Electrodomestico {
             if (color != Utilidades.COLOR[i]) {
                 color = COLOR;
             }
-            return color;
+            
         }
-
+        return color;
     }
 
-    public float precioFinal(char consumoEnergetico, int peso) {
+    public float precioFinal(Electrodomestico y) {
         float contadorFinal = 0;
         float contador = PRECIO_BASE;
         float contadorPeso = 0;
@@ -119,14 +122,12 @@ public class Electrodomestico {
                                 contador += 10;
                             } else {
                                 contador = PRECIO_BASE;
-                            }
-                        
+                            }  
                         }
-                 }
-
                     }
                 }
             }
+        }
         
         if (peso == 0 && peso <= 19) {
             contadorPeso += 10;
@@ -136,19 +137,22 @@ public class Electrodomestico {
                     contadorPeso += 80;
                     if (peso > 80) {
                         contadorPeso += 100;
-                    
+                    }
+                }
 
             }
+        
         }
+     
+        contadorFinal = contador + contadorPeso;       
+        return contadorFinal;
+    	}
 
+	@Override
+	public String toString() {
+		return "Electrodomestico [precioBase=" + precioBase + ", color=" + color + ", consumoEnergetico="
+				+ consumoEnergetico + ", peso=" + peso + "]";
+	}   
+   
     }
-        
- }
-        
-  contadorFinal = contador + contadorPeso;       
-        
-        
-        
-    }
-    }
-}
+
