@@ -88,12 +88,11 @@ public class Electrodomestico {
 
     public char comprobarConsumoEnergetico(char letra) {
         for (int i = 0; i < Utilidades.LETRAS.length; i++) {
-            if (letra != Utilidades.LETRAS[i]) {
-                letra = CONSUMO_ENERGETICO;
+            if (letra == Utilidades.LETRAS[i]) {
+                return letra; 
             }
-
         }
-        return letra;
+        return CONSUMO_ENERGETICO;
     }
 
     /**
@@ -102,12 +101,12 @@ public class Electrodomestico {
      */
     public String comprobarColor(String color) {
         for (int i = 0; i < Utilidades.COLOR.length; i++) {
-            if (color != Utilidades.COLOR[i]) {
-                color = COLOR;
+            if (color == Utilidades.COLOR[i]) {
+               return color;
             }
 
         }
-        return color;
+        return COLOR;
     }
 
     /**
@@ -166,13 +165,13 @@ public class Electrodomestico {
      */
     public float porPeso() {
         float contadorPeso = 0;
-        if (this.peso == 0 && this.peso <= 19) {
+        if (this.peso >= 0 && this.peso <= 19) {
             contadorPeso += 10;
         } else {
-            if (this.peso == 20 && this.peso <= 49) {
+            if (this.peso >= 20 && this.peso <= 49) {
                 contadorPeso = +50;
             } else {
-                if (this.peso == 50 && this.peso <= 79) {
+                if (this.peso >= 50 && this.peso <= 79) {
                     contadorPeso += 80;
                 } else {
                     if (this.peso > 80) {
