@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" automaticImage="JPEG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
+  router="FAN">  
+  <class id="1" language="java" name="Electrodomesticos.Ejecutable" project="EvaluacionElectrodomesticos" 
+    file="/EvaluacionElectrodomesticos/src/Electrodomesticos/Ejecutable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="113" x="210" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="Electrodomesticos.Televisor" project="EvaluacionElectrodomesticos" 
+    file="/EvaluacionElectrodomesticos/src/Electrodomesticos/Televisor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="234" x="226" y="444"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="Electrodomesticos.Lavadora" project="EvaluacionElectrodomesticos" 
+    file="/EvaluacionElectrodomesticos/src/Electrodomesticos/Lavadora.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="194" x="500" y="444"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="Electrodomesticos.Electrodomestico" project="EvaluacionElectrodomesticos" 
+    file="/EvaluacionElectrodomesticos/src/Electrodomesticos/Electrodomestico.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="423" width="229" x="363" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="Electrodomesticos.Utilidades" project="EvaluacionElectrodomesticos" 
+    file="/EvaluacionElectrodomesticos/src/Electrodomesticos/Utilidades.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="121" x="632" y="-19"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="6">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="7">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
